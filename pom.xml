@@ -23,6 +23,8 @@
         <okhttp.versiion>3.3.1</okhttp.versiion>
         <happy-dns-java.versiion>0.1.4</happy-dns-java.versiion>
         <guava.version>20.0</guava.version>
+        <nacos-config-spring-boot.version>0.2.1</nacos-config-spring-boot.version>
+        <nacos-discovery-spring-boot.version>0.2.1</nacos-discovery-spring-boot.version>
     </properties>
 
     <dependencies>
@@ -94,6 +96,18 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>${guava.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.boot</groupId>
+            <artifactId>nacos-config-spring-boot-starter</artifactId>
+            <version>${nacos-config-spring-boot.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.boot</groupId>
+            <artifactId>nacos-discovery-spring-boot-starter</artifactId>
+            <version>${nacos-discovery-spring-boot.version}</version>
         </dependency>
 
     </dependencies>
