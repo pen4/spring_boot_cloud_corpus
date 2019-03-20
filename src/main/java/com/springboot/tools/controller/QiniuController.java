@@ -1,6 +1,7 @@
 package com.springboot.tools.controller;
 
 import com.qiniu.storage.BucketManager;
+import com.springboot.tools.qiniu.MyUploadCompletionHandler;
 import com.springboot.tools.qiniu.QiNiuCloudUtilsService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.*;
 import java.util.List;
+
+import static com.google.common.io.ByteStreams.toByteArray;
 
 /**
  * @author kxd
@@ -20,14 +23,16 @@ import java.util.List;
 @RequestMapping("/api")
 public class QiniuController {
 
-    private final String bucketName = "zabx-repay";
+    private final String bucketName = "test";
 
     @Autowired
     QiNiuCloudUtilsService qiNiuCloudUtilsService;
+    @Autowired
+    MyUploadCompletionHandler myUploadCompletionHandler;
 
     @RequestMapping(value = "/upload", method = RequestMethod.POST, name = "上传文件到七牛")
     @ResponseBody
-    public String upload(@RequestBody FileMessage info) throws FileNotFoundException {
+    public String upload(@RequestBody FileMessage info) throws Exception {
 
         File file = new File(info.getFilePath());
         InputStream downloadInfo = new FileInputStream(file);
@@ -35,6 +40,32 @@ public class QiniuController {
         qiNiuCloudUtilsService.upload(bucketName, downloadInfo, file.getName());
         return "上传成功";
     }
+
+
+    @RequestMapping(value = "/uploadWithRecorder", method = RequestMethod.POST, name = "分段断点上传大文件到七牛")
+    @ResponseBody
+    public String uploadWithRecorder(@RequestBody FileMessage info) throws Exception {
+
+        File file = new File(info.getFilePath());
+
+        //通过文件流来上传文件
+        qiNiuCloudUtilsService.uploadWithRecorder(bucketName, file, info.getRemoteFileName(), null, "zip", true);
+        return "分段上传成功";
+    }
+
+
+    @RequestMapping(value = "/asyncupload", method = RequestMethod.POST, name = "异步上传文件到七牛")
+    @ResponseBody
+    public String asyncUploadFile(@RequestBody FileMessage info) throws Exception {
+
+        File file = new File(info.getFilePath());
+        InputStream inputStream = new FileInputStream(file);
+        //通过字节数组来上传文件
+        //速度快，立即返回，即使断网也会成功
+        qiNiuCloudUtilsService.asyncUpload(bucketName, toByteArray(inputStream), info.getRemoteFileName(), null, "zip", true, myUploadCompletionHandler);
+        return "分段上传成功";
+    }
+
 
     /**
      * 下载接口
@@ -52,6 +83,7 @@ public class QiniuController {
         qiNiuCloudUtilsService.download(info);
         return "下载成功";
     }
+
 
     /**
      * 查找指定bucket_name下的文件信息

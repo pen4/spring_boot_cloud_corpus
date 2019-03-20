@@ -5,12 +5,12 @@ import com.google.gson.Gson;
 import com.qiniu.common.QiniuException;
 import com.qiniu.common.Zone;
 import com.qiniu.http.Response;
-import com.qiniu.storage.BucketManager;
-import com.qiniu.storage.Configuration;
-import com.qiniu.storage.UploadManager;
+import com.qiniu.storage.*;
 import com.qiniu.storage.model.BatchStatus;
 import com.qiniu.storage.model.DefaultPutRet;
+import com.qiniu.storage.persistent.FileRecorder;
 import com.qiniu.util.Auth;
+import com.qiniu.util.StringMap;
 import com.springboot.tools.controller.FileMessage;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
@@ -36,19 +36,14 @@ import java.util.UUID;
 @Slf4j
 @Component
 public class QiNiuCloudUtilsService implements ApplicationRunner {
-
     private final int maxSize = 1000;
-
     private static final String PRODUCTION = "production";
     @Autowired
     private QiNiuPropertiesConfig qiNiuPropertiesConfig;
-
     private Auth auth;
-
     private Configuration configuration;
-
+    private Recorder recorder;
     private UploadManager uploadManager;
-
     private BucketManager bucketManager;
 
 
@@ -60,13 +55,10 @@ public class QiNiuCloudUtilsService implements ApplicationRunner {
     public List<String> getFileInfo(String bucketNm) {
         //文件名前缀
         String prefix = "";
-        //每次迭代的长度限制，最大1000，推荐值 1000
-        int limit = maxSize;
         //指定目录分隔符，列出所有公共前缀（模拟列出目录效果）。缺省值为空字符串
         String delimiter = "";
         //列举空间文件列表
-        BucketManager.FileListIterator iterator = bucketManager.createFileListIterator(bucketNm, prefix, limit, delimiter);
-
+        BucketManager.FileListIterator iterator = bucketManager.createFileListIterator(bucketNm, prefix, maxSize, delimiter);
         List<String> res = Lists.newArrayList();
         while (iterator.hasNext()) {
             com.qiniu.storage.model.FileInfo[] fileInfos = iterator.next();
@@ -103,7 +95,6 @@ public class QiNiuCloudUtilsService implements ApplicationRunner {
      * @return result
      */
     public Result deleteFiles(String bucketNm, String[] keys) {
-        Result result;
         try {
             //当文件大于1000的时候，就直接不处理
             if (keys.length > maxSize) {
@@ -141,7 +132,7 @@ public class QiNiuCloudUtilsService implements ApplicationRunner {
      *
      * @param bucketNm bucker名称
      * @param key      文件名称
-     * @return
+     * @return Result 定义的返回结果对象
      */
     public Result deleteFile(String bucketNm, String key) {
         Result result;
@@ -157,33 +148,79 @@ public class QiNiuCloudUtilsService implements ApplicationRunner {
     }
 
     /**
-     * 上传输入流
+     * 通过输入流上传
      *
      * @param bucketNm bucket的名称
      * @param in       输入流
-     * @return
+     * @return 上传结果
      */
-    public Result upload(String bucketNm, InputStream in, String key) {
-        Result result = null;
-        try {
-            UploadManager uploadManager = getUploadManager(bucketNm);
-            //获取token
-            String token = getToken(bucketNm);
-            //上传输入流
-            Response response = uploadManager.put(in, key, token, null, null);
+    public Result upload(String bucketNm, InputStream in, String key) throws QiniuException {
+        UploadManager uploadManager = getUploadManager();
+        //获取token
+        String token = getToken(bucketNm);
+        //上传输入流
+        Response response = uploadManager.put(in, key, token, null, null);
+        //解析上传成功的结果
+        DefaultPutRet putRet = new Gson().fromJson(response.bodyString(), DefaultPutRet.class);
+        return new Result(true, putRet.key);
+    }
 
-            System.out.println(response.address);
-            System.out.println(response.bodyString());
+    /**
+     * 异步上传数据
+     *
+     * @param bucketNm            bucket的名称
+     * @param data                上传的数据
+     * @param key                 上传凭证
+     * @param params              自定义参数，如 params.put("x:foo", "foo")
+     * @param mime                文件类型
+     * @param checkCrc            是否开启crc校验
+     * @param upCompletionHandler 回调处理方法
+     * @throws IOException io异常
+     */
+    public void asyncUpload(String bucketNm, final byte[] data, final String key, StringMap params,
+                            String mime, boolean checkCrc, UpCompletionHandler upCompletionHandler) throws IOException {
+        UploadManager uploadManager = getUploadManager();
+        String token = getToken(bucketNm);
+        uploadManager.asyncPut(data, key, token, null, mime, checkCrc, upCompletionHandler);
+    }
 
-            //解析上传成功的结果
-            DefaultPutRet putRet = new Gson().fromJson(response.bodyString(), DefaultPutRet.class);
-            log.info(putRet.key);
-            log.info(putRet.hash);
-            result = new Result(true, putRet.key);
-        } catch (Exception e) {
-            log.error("upload方法异常", e);
-            result = new Result(false);
-        }
+
+    /**
+     * 上传文件
+     *
+     * @param bucketNm String
+     * @param file     File
+     * @return Result
+     */
+    public Result upload(String bucketNm, File file) throws QiniuException {
+        UploadManager uploadManager = getUploadManager();
+        String token = getToken(bucketNm);
+        Response response = uploadManager.put(file.getAbsolutePath(), newName(file.getName()), token);
+        //解析上传成功的结果
+        DefaultPutRet putRet = new Gson().fromJson(response.bodyString(), DefaultPutRet.class);
+        return new Result(true, putRet.key);
+    }
+
+    /**
+     * 断点续传，分段上传方法
+     *
+     * @param bucketNm 存储区域
+     * @param file     文件
+     * @param key      文件别名
+     * @param params   文件名过滤属性
+     * @param mime     文件类型
+     * @param checkCrc crc文件校验是否开启
+     * @return 返回结果对象
+     */
+    public Result uploadWithRecorder(String bucketNm, File file, String key, StringMap params, String mime, boolean checkCrc) throws Exception {
+        Result result;
+        UploadManager uploadManager = getUploadManagerWithRecorder();
+        String token = getToken(bucketNm);
+        Response response = uploadManager.put(file, key, token, params,
+                mime, checkCrc);
+        //解析上传成功的结果
+        DefaultPutRet putRet = new Gson().fromJson(response.bodyString(), DefaultPutRet.class);
+        result = new Result(true, putRet.key);
         return result;
     }
 
@@ -191,7 +228,7 @@ public class QiNiuCloudUtilsService implements ApplicationRunner {
     /**
      * 文件下载
      *
-     * @param info
+     * @param info 文件信息
      */
     public void download(FileMessage info) {
         //获取downloadUrl
@@ -210,7 +247,7 @@ public class QiNiuCloudUtilsService implements ApplicationRunner {
 
         String encodedFileName = null;
         try {
-            encodedFileName = URLEncoder.encode(info.getFileName(), "utf-8");
+            encodedFileName = URLEncoder.encode(info.getRemoteFileName(), "utf-8");
         } catch (UnsupportedEncodingException e) {
             log.error("getDownloadUrl中异常", e);
         }
@@ -223,9 +260,9 @@ public class QiNiuCloudUtilsService implements ApplicationRunner {
     /**
      * 通过发送http get 请求获取文件资源
      *
-     * @param url
-     * @param fileMessage
-     * @param savePath
+     * @param url         文件位置
+     * @param fileMessage 文件信息
+     * @param savePath    保存路径
      */
     private static void download(String url, FileMessage fileMessage, String savePath) {
         OkHttpClient client = new OkHttpClient();
@@ -246,7 +283,7 @@ public class QiNiuCloudUtilsService implements ApplicationRunner {
                     file.mkdir();
                 }
 
-                File saveFile = new File(file, fileMessage.getFileName());
+                File saveFile = new File(file, fileMessage.getRemoteFileName());
                 FileOutputStream fops = new FileOutputStream(saveFile);
                 fops.write(data);
                 fops.close();
@@ -278,31 +315,6 @@ public class QiNiuCloudUtilsService implements ApplicationRunner {
         return writer.toByteArray();
     }
 
-    /**
-     * 通过文件来传递数据
-     *
-     * @param bucketNm String
-     * @param file     File
-     * @return Result
-     */
-    public Result upload(String bucketNm, File file) {
-        Result result;
-        try {
-            UploadManager uploadManager = getUploadManager(bucketNm);
-            String token = getToken(bucketNm);
-            Response response = uploadManager.put(file.getAbsolutePath(), newName(file.getName()), token);
-            //解析上传成功的结果
-            DefaultPutRet putRet = new Gson().fromJson(response.bodyString(), DefaultPutRet.class);
-            log.info(putRet.key);
-            log.info(putRet.hash);
-            result = new Result(true, putRet.key);
-        } catch (QiniuException e) {
-            log.error("upload方法异常", e);
-            result = new Result(false);
-        }
-        return result;
-
-    }
 
     /**
      * 通过老文件的名称自动生成新的文件
@@ -337,17 +349,26 @@ public class QiNiuCloudUtilsService implements ApplicationRunner {
 
 
     /**
-     * 获取上传管理器
+     * 获取上传管理器，非分段上传，断点上传
      *
-     * @param bucketNm String
      * @return UploadManager
      */
-    public UploadManager getUploadManager(String bucketNm) {
+    public UploadManager getUploadManager() {
 
         if (null == uploadManager) {
             uploadManager = new UploadManager(configuration);
         }
         return uploadManager;
+    }
+
+    /**
+     * 构建一个支持断点续传的上传对象。只在文件采用分片上传时才会有效
+     *
+     * @return 上传管理
+     */
+    public UploadManager getUploadManagerWithRecorder() {
+
+        return new UploadManager(configuration, recorder);
     }
 
     /**
@@ -414,6 +435,8 @@ public class QiNiuCloudUtilsService implements ApplicationRunner {
         getAuth();
         getConfiguration();
         getBucketManager();
+        //断点文件保存的目录
+        recorder = new FileRecorder("/Users/apple/breakpoint");
         log.info("加载qiniu中属性完毕.");
     }
 

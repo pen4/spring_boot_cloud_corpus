@@ -11,7 +11,14 @@ import javax.validation.constraints.NotNull;
  */
 @Data
 public class FileMessage {
+
+    /**
+     * 服务本地上传文件的全路径
+     */
     @NotNull
     String filePath;
-    String fileName;
+    /**
+     * 上传之后在七牛云中新的文件名
+     */
+    String remoteFileName;
 }
