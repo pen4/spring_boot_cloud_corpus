@@ -15,8 +15,8 @@ public class Send {
     public static void main(String[] args) {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
-        try (Connection connection = factory.newConnection(); Channel channel = connection.createChannel()) {
-
+        try (Connection connection = factory.newConnection(); ) {
+            Channel channel = connection.createChannel();
             channel.queueDeclare(QUEUE_ANME, false, false, false, null);
             String message = "hello world!";
             channel.basicPublish("", QUEUE_ANME, null, message.getBytes());

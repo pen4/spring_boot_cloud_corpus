@@ -1,4 +1,4 @@
-package com.springboot.tools.controller;
+package com.springboot.tools.web.controller.qiniu;
 
 import lombok.Data;
 

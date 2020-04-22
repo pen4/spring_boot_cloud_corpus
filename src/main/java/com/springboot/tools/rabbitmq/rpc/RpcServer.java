@@ -25,13 +25,14 @@ public class RpcServer {
     public static void main(String[] args) throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
-        try (Connection connection = factory.newConnection(); Channel channel = connection.createChannel()) {
+        try (Connection connection = factory.newConnection(); ) {
+            Channel channel = connection.createChannel();
             channel.queueDeclare(RPC_QUEUE_NAME, false, false, false, null);
             channel.queuePurge(RPC_QUEUE_NAME);
             channel.basicQos(1);
             System.out.println("[x] awaiting rpc requests");
             Object monitor = new Object();
-            DeliverCallback deliverCallback = (consumerTag, delivery) -> {
+           /* DeliverCallback deliverCallback = (consumerTag, delivery) -> {
                 AMQP.BasicProperties replyProps = new AMQP.BasicProperties.Builder().correlationId(delivery.getProperties().getCorrelationId()).build();
                 String response = "";
                 try {
@@ -50,7 +51,7 @@ public class RpcServer {
                         monitor.notify();
                     }
                 }
-            };
+            };*/
         }
     }
 }

@@ -33,12 +33,9 @@ public class DistributionReceiver {
         } finally {
             System.out.println("A Done ! at" + LocalTime.now());
         }
-
-
     }
 
     public void doWork(long time) throws InterruptedException {
         Thread.sleep(time);
-
     }
 }

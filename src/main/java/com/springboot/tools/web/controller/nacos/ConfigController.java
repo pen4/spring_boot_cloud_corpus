@@ -1,4 +1,4 @@
-package com.springboot.tools.controller.nacos;
+package com.springboot.tools.web.controller.nacos;
 
 import com.alibaba.nacos.api.config.annotation.NacosValue;
 import org.springframework.stereotype.Controller;

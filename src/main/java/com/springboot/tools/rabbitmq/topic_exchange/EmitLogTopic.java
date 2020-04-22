@@ -17,7 +17,8 @@ public class EmitLogTopic {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
         try (Connection connection = factory.newConnection();
-             Channel channel = connection.createChannel()) {
+            ) {
+            Channel channel = connection.createChannel();
             channel.exchangeDeclare(EXCHAGE_NAME,"topic");
             String routingKey=getRouting(args);
             String message=getMessage(args);

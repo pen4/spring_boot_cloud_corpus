@@ -1,4 +1,4 @@
-package com.springboot.tools.fegin_service.model;
+package com.springboot.tools.web.service.fegin_service.model;
 
 /**
  * @author kxd

@@ -3,7 +3,7 @@ package com.springboot.tools.rabbitmq.exchange;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
-import com.rabbitmq.client.DeliverCallback;
+
 
 /**
  * @author kxd
@@ -25,11 +25,11 @@ public class ReceiveLogs {
         channel.queueBind(queueName, EXCHANGE_NAME, "");
         System.out.println("[x] waiting for messages .to exit press c");
 
-        DeliverCallback deliverCallback = ((consumerTag, delivery) -> {
+      /*  DeliverCallback deliverCallback = ((consumerTag, delivery) -> {
             String message = new String(delivery.getBody(), "UTF-8");
             System.out.println("[x] received '" + message + "'");
         });
         channel.basicConsume(queueName, true, deliverCallback, consumerTag -> {
-        });
+        });*/
     }
 }

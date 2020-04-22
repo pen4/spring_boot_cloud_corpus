@@ -1,4 +1,4 @@
-package com.springboot.tools.qiniu;
+package com.springboot.tools.web.service.qiniu;
 
 import com.qiniu.http.Response;
 import com.qiniu.storage.UpCompletionHandler;

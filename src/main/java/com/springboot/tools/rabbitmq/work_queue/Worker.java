@@ -3,7 +3,6 @@ package com.springboot.tools.rabbitmq.work_queue;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
-import com.rabbitmq.client.DeliverCallback;
 
 /**
  * @author kxd
@@ -21,7 +20,7 @@ public class Worker {
         final Connection connection = factory.newConnection();
         final Channel channel = connection.createChannel();
         channel.basicQos(1);
-        DeliverCallback deliverCallback = ((consumerTag, delivery) -> {
+        /*DeliverCallback deliverCallback = ((consumerTag, delivery) -> {
             String message = new String(delivery.getBody(), "UTF-8");
             System.out.println("received >>" + message);
             try {
@@ -33,8 +32,7 @@ public class Worker {
         });
         channel.basicConsume(TASK_QUEUE_NAME, false, deliverCallback, consumerTag -> {
         });
-
-
+*/
     }
 
     private static void doWork(String task) {

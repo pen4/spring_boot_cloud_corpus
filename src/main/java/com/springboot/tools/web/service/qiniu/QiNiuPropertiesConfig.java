@@ -1,4 +1,4 @@
-package com.springboot.tools.qiniu;
+package com.springboot.tools.web.service.qiniu;
 
 import lombok.Data;
 import org.springframework.beans.BeansException;

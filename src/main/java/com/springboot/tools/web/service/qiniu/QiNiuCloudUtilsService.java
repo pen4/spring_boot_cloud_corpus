@@ -1,4 +1,4 @@
-package com.springboot.tools.qiniu;
+package com.springboot.tools.web.service.qiniu;
 
 import com.google.common.collect.Lists;
 import com.google.gson.Gson;
@@ -11,7 +11,7 @@ import com.qiniu.storage.model.DefaultPutRet;
 import com.qiniu.storage.persistent.FileRecorder;
 import com.qiniu.util.Auth;
 import com.qiniu.util.StringMap;
-import com.springboot.tools.controller.FileMessage;
+import com.springboot.tools.web.controller.qiniu.FileMessage;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.ResponseBody;

@@ -15,7 +15,7 @@ import java.nio.charset.Charset;
 public class RemitLogDirect {
     public static final String EXCHANGE_NAME = "direct_log";
 
-    public static void main(String[] args) throws Exception {
+   /* public static void main(String[] args) throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
         try (Connection connection = factory.newConnection(); Channel channel = connection.createChannel()) {
@@ -27,7 +27,7 @@ public class RemitLogDirect {
             System.out.println(" [x] send '" + serverity + ":" + message + "'");
         }
 
-    }
+    }*/
 
     private static String getMessage(String[] args) {
         Preconditions.checkNotNull(args, "传入参数%s不能为空", args);

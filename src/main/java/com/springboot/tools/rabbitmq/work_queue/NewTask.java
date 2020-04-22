@@ -16,7 +16,8 @@ public class NewTask {
     public static void main(String[] args) {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
-        try (Connection connection = factory.newConnection(); Channel channel = connection.createChannel()) {
+        try (Connection connection = factory.newConnection(); ) {
+            Channel channel = connection.createChannel();
             channel.queueDeclare(TASK_QUEUE_NAME, true, false, false, null);
             String[] name={"a","b","c"};
             String message = String.join(" ", name);

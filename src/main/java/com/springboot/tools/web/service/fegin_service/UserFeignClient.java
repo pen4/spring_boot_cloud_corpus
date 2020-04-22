@@ -1,6 +1,6 @@
-package com.springboot.tools.fegin_service;
+package com.springboot.tools.web.service.fegin_service;
 
-import com.springboot.tools.fegin_service.model.Demo;
+import com.springboot.tools.web.service.fegin_service.model.Demo;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,7 +1,5 @@
-package com.springboot.tools;
+package com.springboot.tools.rabbitmq;
 
-import com.alibaba.nacos.api.config.annotation.NacosConfigurationProperties;
-import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.*;
 import org.springframework.boot.SpringApplication;
@@ -10,7 +8,6 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
-@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 @Slf4j
 public class SpringBootToolsApplication {
 
@@ -20,13 +17,8 @@ public class SpringBootToolsApplication {
         for (String str : ctx.getEnvironment().getActiveProfiles()) {
             log.info(str);
         }
-
         log.info("Boot Server started.");
-
-
     }
-
-
 
     @Bean
     public Queue helloQueue() {
@@ -117,7 +109,5 @@ public class SpringBootToolsApplication {
     Binding bindingExchangeC(Queue CMessage, FanoutExchange fanoutExchange) {
         return BindingBuilder.bind(CMessage).to(fanoutExchange);
     }
-
-
 }
 

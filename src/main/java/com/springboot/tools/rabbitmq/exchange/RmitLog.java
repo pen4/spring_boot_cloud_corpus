@@ -11,7 +11,7 @@ import com.rabbitmq.client.ConnectionFactory;
  */
 public class RmitLog {
     private static final String EXCHANGE_NAME = "logs";
-
+/*
     public static void main(String[] args) {
         ConnectionFactory factory = new ConnectionFactory();
 
@@ -28,5 +28,5 @@ public class RmitLog {
 
         }
 
-    }
+    }*/
 }

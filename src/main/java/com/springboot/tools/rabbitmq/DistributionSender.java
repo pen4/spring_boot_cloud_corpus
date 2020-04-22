@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class DistributionSender {
 
-    @Autowired
+    @Autowired(required = false)
     private AmqpTemplate amqpTemplate;
 
    public void send(int i){

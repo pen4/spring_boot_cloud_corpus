@@ -1,8 +1,7 @@
-package com.springboot.tools.controller;
+package com.springboot.tools.web.controller.qiniu;
 
-import com.qiniu.storage.BucketManager;
-import com.springboot.tools.qiniu.MyUploadCompletionHandler;
-import com.springboot.tools.qiniu.QiNiuCloudUtilsService;
+import com.springboot.tools.web.service.qiniu.MyUploadCompletionHandler;
+import com.springboot.tools.web.service.qiniu.QiNiuCloudUtilsService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

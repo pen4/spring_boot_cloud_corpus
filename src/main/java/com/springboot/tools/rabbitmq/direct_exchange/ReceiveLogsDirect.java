@@ -3,7 +3,6 @@ package com.springboot.tools.rabbitmq.direct_exchange;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
-import com.rabbitmq.client.DeliverCallback;
 
 /**
  * @author kxd
@@ -11,7 +10,7 @@ import com.rabbitmq.client.DeliverCallback;
  * description:
  */
 public class ReceiveLogsDirect {
-
+/*
     private static final String EXCHANGE_NAME = "direct_logs";
 
     public static void main(String[] args) throws Exception {
@@ -41,5 +40,5 @@ public class ReceiveLogsDirect {
 
         channel.basicConsume(queueName, true, deliverCallback, consumerTag -> {
         });
-    }
+    }*/
 }

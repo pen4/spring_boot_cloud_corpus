@@ -1,4 +1,4 @@
-package com.springboot.tools.controller.nacos;
+package com.springboot.tools.web.controller.nacos;
 
 import com.alibaba.nacos.api.annotation.NacosInjected;
 import com.alibaba.nacos.api.exception.NacosException;
