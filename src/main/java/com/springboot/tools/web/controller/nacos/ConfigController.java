@@ -22,6 +22,4 @@ public class ConfigController {
     public boolean get() {
         return useLocalCache;
     }
-
-
 }

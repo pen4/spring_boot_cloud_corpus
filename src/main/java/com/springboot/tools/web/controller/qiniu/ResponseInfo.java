@@ -11,7 +11,6 @@ import lombok.Data;
 @Data
 @Builder
 public class ResponseInfo {
-
     public String code;
-    public Object mesg;
+    public Object msg;
 }

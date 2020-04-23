@@ -14,7 +14,6 @@ public class HelloController {
 		return "hello world";
 	}
 
-
 	@RequestMapping("/")
 	public String index(ModelMap map) {
 		map.addAttribute("host","http://blog.learn.springboot");

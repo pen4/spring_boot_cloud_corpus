@@ -25,7 +25,6 @@ public class RabbitTest {
     @PostMapping("/hello")
     public void hello() {
         helloSender1.send();
-
     }
 
     @PostMapping("/oneTomany")

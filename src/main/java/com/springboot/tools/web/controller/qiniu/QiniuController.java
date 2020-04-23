@@ -91,9 +91,7 @@ public class QiniuController {
     @ResponseBody
     public ResponseInfo query(@RequestParam String bucketName) {
         List res = qiNiuCloudUtilsService.getFileInfo(bucketName);
-        return ResponseInfo.builder().mesg(res).build();
-
+        return ResponseInfo.builder().msg(res).build();
     }
-
 
 }
