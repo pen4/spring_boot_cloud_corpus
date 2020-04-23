@@ -24,9 +24,6 @@ public class EmitLogTopic {
             String message=getMessage(args);
             channel.basicPublish(EXCHAGE_NAME,routingKey,null,message.getBytes("UTF-8"));
             System.out.println("[x] send '"+message+"'");
-
-
-
         }
     }
 

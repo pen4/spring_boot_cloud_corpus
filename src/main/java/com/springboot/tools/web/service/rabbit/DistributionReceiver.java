@@ -1,4 +1,4 @@
-package com.springboot.tools.rabbitmq;
+package com.springboot.tools.web.service.rabbit;
 
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;

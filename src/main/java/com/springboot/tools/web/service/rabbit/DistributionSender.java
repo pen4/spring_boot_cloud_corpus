@@ -1,4 +1,4 @@
-package com.springboot.tools.rabbitmq;
+package com.springboot.tools.web.service.rabbit;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.amqp.core.AmqpTemplate;

@@ -1,4 +1,4 @@
-package com.springboot.tools.rabbitmq.springboot;
+package com.springboot.tools.web.service.rabbit;
 
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,14 +12,14 @@ import java.util.Date;
  * description:
  */
 @Component
-public class HelloSender2 {
+public class HelloSender1 {
 
     @Autowired
     private AmqpTemplate rabbitTemplate;
 
     public void send(){
-        String sendMsg="hello2"+new Date();
-        System.out.println("Send2 s:  "+sendMsg);
+        String sendMsg="hello1"+new Date();
+        System.out.println("Send1 s:  "+sendMsg);
         this.rabbitTemplate.convertAndSend("helloQueue",sendMsg);
     }
 

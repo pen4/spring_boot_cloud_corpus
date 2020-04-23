@@ -1,4 +1,4 @@
-package com.springboot.tools.rabbitmq.springboot;
+package com.springboot.tools.web.service.rabbit;
 
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -11,10 +11,10 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @RabbitListener(queues = "helloQueue")
-public class HelloReceiver2 {
+public class HelloReceiver1 {
 
     @RabbitHandler
-    public void process(String hello) {
-        System.out.println("Receiver 2  " + hello);
+    public void process(String hello){
+        System.out.println("Receiver 1  "+hello);
     }
 }

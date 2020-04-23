@@ -1,23 +1,22 @@
-package com.springboot.tools.rabbitmq;
+package com.springboot.tools.web.config;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.*;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
-@Slf4j
-public class SpringBootToolsApplication {
 
-    public static void main(String[] args) {
-        ApplicationContext ctx = SpringApplication.run(SpringBootToolsApplication.class, args);
-        log.info("spring.profiles.active:");
-        for (String str : ctx.getEnvironment().getActiveProfiles()) {
-            log.info(str);
-        }
-        log.info("Boot Server started.");
+/**
+ * @author kxd
+ * @date 2019/3/7 17:03
+ * description:
+ */
+
+@Configuration
+public class RabbitMqConfig {
+/*
+    @Bean
+    public Queue distributeQueue(){
+        return new Queue("distribu");
     }
 
     @Bean
@@ -42,7 +41,6 @@ public class SpringBootToolsApplication {
     }
     //===============以上是验证topic Exchange的队列==========
 
-
     //===============以下是验证Fanout Exchange的队列==========
     @Bean
     public Queue AMessage() {
@@ -60,7 +58,6 @@ public class SpringBootToolsApplication {
     }
     //===============以上是验证Fanout Exchange的队列==========
 
-
     @Bean
     TopicExchange exchange() {
         return new TopicExchange("exchange");
@@ -71,25 +68,25 @@ public class SpringBootToolsApplication {
         return new FanoutExchange("fanoutExchange");
     }
 
-    /**
+    *//**
      * 将队列topic.message与exchange绑定，binding_key为topic.message,就是完全匹配
      *
      * @param queueMessage
      * @param exchange
      * @return
-     */
+     *//*
     @Bean
     Binding bindingExchangeMessage(Queue queueMessage, TopicExchange exchange) {
         return BindingBuilder.bind(queueMessage).to(exchange).with("topic.message");
     }
 
-    /**
+    *//**
      * 将队列topic.messages与exchange绑定，binding_key为topic.#,模糊匹配
      *
      * @param queueMessages
      * @param exchange
      * @return
-     */
+     *//*
     @Bean
     Binding bindingExchangeMessages(Queue queueMessages, TopicExchange exchange) {
         return BindingBuilder.bind(queueMessages).to(exchange).with("topic.#");
@@ -108,6 +105,5 @@ public class SpringBootToolsApplication {
     @Bean
     Binding bindingExchangeC(Queue CMessage, FanoutExchange fanoutExchange) {
         return BindingBuilder.bind(CMessage).to(fanoutExchange);
-    }
+    }*/
 }
-
