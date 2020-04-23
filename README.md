@@ -1,11 +1,15 @@
 # spring_boot_tools
 
 #### 介绍
-spring_boot工具项目，用到的可以放进来
+spring_boot使用常见中间件
+包含连接redis,rabbitmq,datasource，七牛云,nacos
 
 #### 软件架构
-软件架构说明
-
+mysql
+redis
+rabbitmq
+七牛云
+nacos
 
 #### 安装教程
 
