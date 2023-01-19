@@ -8,6 +8,8 @@ spring_boot使用常见中间件
 - datasource
 - 七牛云
 - nacos
+- mysql
+- jpa
 
 #### 软件架构
 - spring
