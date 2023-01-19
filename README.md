@@ -1,27 +1,24 @@
-# spring_boot_tools
+# spring_boot_cloud_corpus
 
+> spring boot和其他中间件的集成以及spring-cloud和其他组件的集成
 #### 介绍
 spring_boot使用常见中间件
-包含连接redis,rabbitmq,datasource，七牛云,nacos
+- redis
+- rabbitmq
+- datasource
+- 七牛云
+- nacos
 
 #### 软件架构
-mysql
-redis
-rabbitmq
-七牛云
-nacos
+- spring
+- spring boot
+- spring cloud
 
 #### 安装教程
 
-1. xxxx
-2. xxxx
-3. xxxx
 
 #### 使用说明
 
-1. xxxx
-2. xxxx
-3. xxxx
 
 #### 参与贡献
 
