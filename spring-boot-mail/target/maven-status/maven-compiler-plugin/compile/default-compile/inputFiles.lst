@@ -1,0 +1,17 @@
+D:\ideaWork\spring_boot_cloud_corpus\spring-boot-mail\src\main\java\com\springboot\tools\service\BizResult.java
+D:\ideaWork\spring_boot_cloud_corpus\spring-boot-mail\src\main\java\com\springboot\tools\enums\SendStatusType.java
+D:\ideaWork\spring_boot_cloud_corpus\spring-boot-mail\src\main\java\com\springboot\tools\util\consts\AppConst.java
+D:\ideaWork\spring_boot_cloud_corpus\spring-boot-mail\src\main\java\com\springboot\tools\dao\MailDO.java
+D:\ideaWork\spring_boot_cloud_corpus\spring-boot-mail\src\main\java\com\springboot\tools\vo\MailVO.java
+D:\ideaWork\spring_boot_cloud_corpus\spring-boot-mail\src\main\java\com\springboot\tools\vo\BatchSendEmailRequest.java
+D:\ideaWork\spring_boot_cloud_corpus\spring-boot-mail\src\main\java\com\springboot\tools\vo\BatchSendEmailResponse.java
+D:\ideaWork\spring_boot_cloud_corpus\spring-boot-mail\src\main\java\com\springboot\tools\dao\MailDao.java
+D:\ideaWork\spring_boot_cloud_corpus\spring-boot-mail\src\main\java\com\springboot\SpringBootMailApplication.java
+D:\ideaWork\spring_boot_cloud_corpus\spring-boot-mail\src\main\java\com\springboot\tools\service\MailApiServiceImpl.java
+D:\ideaWork\spring_boot_cloud_corpus\spring-boot-mail\src\main\java\com\springboot\tools\enums\SendPriorityType.java
+D:\ideaWork\spring_boot_cloud_corpus\spring-boot-mail\src\main\java\com\springboot\tools\service\MailService.java
+D:\ideaWork\spring_boot_cloud_corpus\spring-boot-mail\src\main\java\com\springboot\tools\util\SerialNumberUtil.java
+D:\ideaWork\spring_boot_cloud_corpus\spring-boot-mail\src\main\java\com\springboot\tools\service\MailApiService.java
+D:\ideaWork\spring_boot_cloud_corpus\spring-boot-mail\src\main\java\com\springboot\tools\dao\MailDaoImpl.java
+D:\ideaWork\spring_boot_cloud_corpus\spring-boot-mail\src\main\java\com\springboot\tools\enums\MailType.java
+D:\ideaWork\spring_boot_cloud_corpus\spring-boot-mail\src\main\java\com\springboot\tools\util\ConfigUtil.java

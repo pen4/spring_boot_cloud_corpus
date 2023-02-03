@@ -4,10 +4,15 @@
 #### 介绍
 spring_boot使用常见中间件
 - redis
+- mysql
 - rabbitmq
 - datasource
 - 七牛云
 - nacos
+- fegin
+- ignite
+- mail
+- scheduled
 
 #### 软件架构
 - spring

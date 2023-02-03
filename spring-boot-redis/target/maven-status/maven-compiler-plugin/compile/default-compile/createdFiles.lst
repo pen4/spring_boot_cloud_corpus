@@ -1,0 +1,4 @@
+com\springboot\dto\User.class
+com\RedisApplications.class
+com\springboot\conif\RedisConfig.class
+com\springboot\conif\RedisObjectSerializer.class
