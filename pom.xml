@@ -18,6 +18,8 @@
         <module>spring-boot-jpa</module>
         <module>spring-boot-hbase</module>
         <module>spring-boot-ws</module>
+        <module>spring-boot-quartz</module>
+        <module>spring-boot-protobuf</module>
     </modules>
 
     <groupId>com.springboot.tools</groupId>
