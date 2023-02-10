@@ -14,6 +14,10 @@
         <module>spring-boot-mysql-jdbc</module>
         <module>spring-boot-ignite</module>
         <module>spring-boot-tsdb</module>
+        <module>spring-boot-activiti</module>
+        <module>spring-boot-jpa</module>
+        <module>spring-boot-hbase</module>
+        <module>spring-boot-ws</module>
     </modules>
 
     <groupId>com.springboot.tools</groupId>

@@ -1,8 +1,7 @@
 package com.springboot.tools.domain;
 
+import com.sun.istack.internal.NotNull;
 import lombok.Data;
-
-import javax.validation.constraints.NotNull;
 
 /**
  * @author kxd

@@ -28,7 +28,7 @@ public class IgniteConnConfig {
     }*/
 
     @Bean
-    public IgniteClient igniteInstance() {
+    public IgniteClient igniteInstance1() {
         ClientConfiguration cfg = new ClientConfiguration().setAddresses("192.168.31.237:10800").setPartitionAwarenessEnabled(true);
         DataStorageConfiguration storageCfg = new DataStorageConfiguration();
         storageCfg.setDefaultWarmUpConfiguration(new LoadAllWarmUpConfiguration());

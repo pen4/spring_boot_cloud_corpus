@@ -1,7 +1,7 @@
 package com.springboot.config;
 
-import com.cache.entity.Organization;
-import com.cache.entity.Person;
+import com.springboot.entity.Organization;
+import com.springboot.entity.Person;
 import org.apache.ignite.Ignite;
 import org.apache.ignite.Ignition;
 import org.apache.ignite.cache.CacheAtomicityMode;
@@ -24,7 +24,7 @@ import java.util.List;
 public class IgniteCacheConfiguration {
 
     @Bean
-    public Ignite igniteInstance() {
+    public Ignite igniteInstance2() {
         return Ignition.start(igniteConfiguration());
     }
 
@@ -34,11 +34,11 @@ public class IgniteCacheConfiguration {
         igniteConfiguration.setIgniteInstanceName("testIgniteInstance");
         //igniteConfiguration.setClientMode(true);
         igniteConfiguration.setPeerClassLoadingEnabled(true);
-        igniteConfiguration.setLocalHost("127.0.0.1");
+        igniteConfiguration.setLocalHost("192.168.31.237:10800");
 
         TcpDiscoverySpi tcpDiscoverySpi = new TcpDiscoverySpi();
         TcpDiscoveryMulticastIpFinder ipFinder = new TcpDiscoveryMulticastIpFinder();
-        ipFinder.setAddresses(Collections.singletonList("127.0.0.1:47500..47509"));
+        ipFinder.setAddresses(Collections.singletonList("192.168.31.237:10800"));
         tcpDiscoverySpi.setIpFinder(ipFinder);
         tcpDiscoverySpi.setLocalPort(47500);
         // Changing local port range. This is an optional action.
@@ -76,7 +76,7 @@ public class IgniteCacheConfiguration {
 
             // Defining and creating a new cache to be used by Ignite Spring Data
             // repository.
-            CacheConfiguration<Long,Person> ccfg = new CacheConfiguration("PersonCache");
+            CacheConfiguration<Long, Person> ccfg = new CacheConfiguration("PersonCache");
             // Setting SQL schema for the cache.
             ccfg.setIndexedTypes(Long.class, Person.class);
 
