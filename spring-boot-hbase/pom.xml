@@ -86,5 +86,6 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
     </dependencies>
 </project>
