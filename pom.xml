@@ -13,6 +13,7 @@
         <module>spring-boot-mail</module>
         <module>spring-boot-mysql-jdbc</module>
         <module>spring-boot-ignite</module>
+        <module>spring-boot-tsdb</module>
     </modules>
 
     <groupId>com.springboot.tools</groupId>
