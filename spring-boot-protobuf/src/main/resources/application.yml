@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: learn-protobuf
+  datasource:
+    tdengine:
+      driverClassName: com.taosdata.jdbc.TSDBDriver
+      url: jdbc:TAOS://192.168.31.202:6030/lbs_service?charset=UTF-8&locale=en_US.UTF-8&timezone=UTC-8
+      username: root
+      password: taosdata
+    postgresql:
+      url: jdbc:postgresql://192.168.31.237:5432/postgres
+      username: postgres
+      password: 123456
+  hikari:
+    tdengine:
+      pool-name: jpa-hikari-pool-tdengine
+      minimum-idle: 5
+      maximum-pool-size: 15
+      auto-commit: true
+      idle-timeout: 30000
+      max-lifetime: 1800000
+      connection-timeout: 30000
+    postgresql:
+      pool-name: jpa-hikari-pool-postgresql
+      minimum-idle: 5
+      maximum-pool-size: 15
+      auto-commit: true
+      idle-timeout: 30000
+      max-lifetime: 1800000
+      connection-timeout: 30000
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+        temp:
+          use_jdbc_metadata_defaults: false

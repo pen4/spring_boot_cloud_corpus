@@ -3,7 +3,6 @@ package com.springboot.tools.service;
 
 import cn.hutool.json.JSONUtil;
 import com.google.common.base.Stopwatch;
-import com.mongodb.util.JSON;
 import com.springboot.tools.dao.MailDO;
 import com.springboot.tools.dao.MailDao;
 import com.springboot.tools.enums.MailType;

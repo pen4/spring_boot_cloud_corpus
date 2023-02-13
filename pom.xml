@@ -20,6 +20,9 @@
         <module>spring-boot-ws</module>
         <module>spring-boot-quartz</module>
         <module>spring-boot-protobuf</module>
+        <module>spring-boot-mongodb</module>
+        <module>spring-boot-mybatis</module>
+        <module>spring-boot-mybatis-plus</module>
     </modules>
 
     <groupId>com.springboot.tools</groupId>
