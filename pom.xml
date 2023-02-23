@@ -8,7 +8,6 @@
         <module>spring-boot-rabbitmq</module>
         <module>spring-boot-redis</module>
         <module>spring-boot-qiniu</module>
-        <module>spring-boot-nacos</module>
         <module>spring-boot-fegin</module>
         <module>spring-boot-mail</module>
         <module>spring-boot-mysql-jdbc</module>
@@ -23,6 +22,10 @@
         <module>spring-boot-mybatis</module>
         <module>spring-boot-mybatis-plus</module>
         <module>spring-boot-quartzs</module>
+        <module>nacos-spring-boot-config-example</module>
+        <module>nacos-spring-boot-discovery-example</module>
+        <module>nacos-spring-boot-config-mysql-example</module>
+        <module>nacos-client-example</module>
     </modules>
 
     <groupId>com.springboot.tools</groupId>
@@ -37,8 +40,6 @@
         <okhttp.versiion>3.3.1</okhttp.versiion>
         <happy-dns-java.versiion>0.1.4</happy-dns-java.versiion>
         <guava.version>20.0</guava.version>
-        <nacos-config-spring-boot.version>0.2.1</nacos-config-spring-boot.version>
-        <nacos-discovery-spring-boot.version>0.2.1</nacos-discovery-spring-boot.version>
     </properties>
 
     <dependencies>
@@ -73,12 +74,9 @@
             <version>4.13.2</version>
         </dependency>
 
-
-<!-- 包含log4j-api-->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>2.19.0</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12 -->
         <dependency>
@@ -125,13 +123,13 @@
             <dependency>
                 <groupId>com.alibaba.boot</groupId>
                 <artifactId>nacos-config-spring-boot-starter</artifactId>
-                <version>${nacos-config-spring-boot.version}</version>
+                <version>0.2.1</version>
             </dependency>
 
             <dependency>
                 <groupId>com.alibaba.boot</groupId>
                 <artifactId>nacos-discovery-spring-boot-starter</artifactId>
-                <version>${nacos-discovery-spring-boot.version}</version>
+                <version>0.2.1</version>
             </dependency>
 
             <!--七牛云javaSDK-->
@@ -262,7 +260,6 @@
             <properties>
                 <spring.profiles.active>production</spring.profiles.active>
             </properties>
-            <dependencies></dependencies>
         </profile>
 
     </profiles>
