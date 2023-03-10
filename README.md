@@ -13,7 +13,7 @@ spring_boot使用常见中间件
 - ignite
 - mail
 - scheduled
-
+- swagger 
 #### 软件架构
 - spring
 - spring boot
