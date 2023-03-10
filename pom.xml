@@ -26,6 +26,7 @@
         <module>nacos-spring-boot-discovery-example</module>
         <module>nacos-spring-boot-config-mysql-example</module>
         <module>nacos-client-example</module>
+        <module>spring-boot-swagger</module>
     </modules>
 
     <groupId>com.springboot.tools</groupId>
@@ -234,6 +235,11 @@
                 <version>2.7.2</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-ui</artifactId>
+                <version>1.6.12</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
