@@ -1,0 +1,13 @@
+feign:
+  sentinel:
+    enabled: true
+spring:
+  application:
+    name: sentinel-case
+  profiles:
+    active: dev
+server:
+  port: 8090
+  servlet:
+    #配置访问路径，默认为/
+    context-path: /

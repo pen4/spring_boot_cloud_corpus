@@ -1,0 +1,16 @@
+#nacos服务注册与发现
+#spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.31.247:30848
+        register-enabled: true
+        group: ${spring.profiles.active}
+      config:
+        server-addr: 192.168.31.247:30848
+        file-extension: yaml
+        group: dev
+        shared-configs:
+          - data-id: common.yaml
+            group: ${spring.profiles.active}
+            refresh: true

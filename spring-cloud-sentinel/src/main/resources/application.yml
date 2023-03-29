@@ -1,0 +1,9 @@
+#这里是启动了一个sentinel的服务端和dashboard通信交互
+spring:
+  cloud:
+    #sentinel dashboard配置
+    sentinel:
+      eager: true
+      transport:
+        port: 8791
+        dashboard: localhost:8858
