@@ -8,13 +8,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>spring-boot-activiti</artifactId>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
 
     <name>spring-boot-activiti</name>
     <url>http://maven.apache.org</url>
-    <modules>
-        <module>spring-boot-state-machine</module>
-    </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
