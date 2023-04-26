@@ -1,3 +1,4 @@
+/*
 package com.springboot.config;
 
 import com.springboot.entity.Organization;
@@ -92,3 +93,4 @@ public class IgniteCacheConfiguration {
         return cacheConfigurations.toArray(new CacheConfiguration[cacheConfigurations.size()]);
     }
 }
+*/

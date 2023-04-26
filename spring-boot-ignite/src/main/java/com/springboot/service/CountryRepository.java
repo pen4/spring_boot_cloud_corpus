@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import javax.cache.Cache;
 import java.util.List;
 
-@RepositoryConfig (cacheName = "Country")
+@RepositoryConfig (cacheName = "Country",autoCreateCache = true)
 @Repository
 public interface CountryRepository extends IgniteRepository<Country, String> {
 

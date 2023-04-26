@@ -1,4 +1,6 @@
-package com.springboot.tools;
+package com.springboot.tools.entity;
+
+import javax.persistence.*;
 
 import static javax.persistence.GenerationType.SEQUENCE;
 

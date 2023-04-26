@@ -1,5 +1,6 @@
-package com.springboot.tools;
+package com.springboot.tools.entity;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 

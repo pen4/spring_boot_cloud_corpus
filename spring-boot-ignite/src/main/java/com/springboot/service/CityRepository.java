@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import javax.cache.Cache;
 import java.util.List;
 
-@RepositoryConfig(cacheName = "City")
+@RepositoryConfig(cacheName = "City",autoCreateCache = true)
 @Repository
 public interface CityRepository extends IgniteRepository<City, CityKey> {
 

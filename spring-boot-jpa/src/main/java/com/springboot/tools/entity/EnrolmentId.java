@@ -1,4 +1,4 @@
-package com.springboot.tools;
+package com.springboot.tools.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;

@@ -84,7 +84,7 @@ public class PersonService {
     /**
      * Fills the repository in with some sample data.
      */
-    @PostConstruct
+   /* @PostConstruct
     private  void populateRepository() {
 
         IgniteCache<Long, Organization> orgCache = igniteInstance.cache("ORG_CACHE");
@@ -110,15 +110,15 @@ public class PersonService {
         persons.put(7L, Person.builder().id(7L).firstName("Abdula").lastName("Adis").age(40).orgId(org1.getId()).build());
         persons.put(8L, Person.builder().id(8L).firstName("Roman").lastName("Ive").age(27).orgId(org1.getId()).build());
 
-        /**
+        *//**
          * Using IgniteDataStreamer to populate the Cache. IgniteDataStreamer should be used for bulk operation
-         */
+         *//*
         // Create a streamer to stream words into the cache.
         //https://www.javadoc.io/doc/org.apache.ignite/ignite-core/2.5.0/org/apache/ignite/IgniteDataStreamer.html
         try (IgniteDataStreamer<Long, Person> stmr = igniteInstance.dataStreamer("PersonCache")) {
             // Allow data updates.
             stmr.allowOverwrite(true);
-            /*
+            *//*
             // Configure data transformation to count random numbers added to the stream.
             stmr.receiver(StreamTransformer.from((e, arg) -> {
                 // Get current count.
@@ -129,12 +129,12 @@ public class PersonService {
 
                 return null;
             }));
-            */
+            *//*
             IgniteFuture<?> future =  stmr.addData(persons);
             stmr.flush();
             future.get();
 
         }
         log.info("\n>>> Added " + personRepository.count() + " Persons into the repository.");
-    }
+    }*/
 }

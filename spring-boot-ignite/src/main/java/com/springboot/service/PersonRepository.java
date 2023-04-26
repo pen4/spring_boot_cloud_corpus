@@ -7,7 +7,7 @@ import org.apache.ignite.springdata22.repository.config.RepositoryConfig;
 
 import java.util.List;
 
-@RepositoryConfig(cacheName = "PersonCache")
+@RepositoryConfig(cacheName = "PersonCache",autoCreateCache = true)
 public interface PersonRepository extends IgniteRepository<Person, Long> {
 
     /**

@@ -10,7 +10,6 @@ import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfigurat
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication(exclude = { DataSourceAutoConfiguration.class, DataSourceTransactionManagerAutoConfiguration.class, RabbitAutoConfiguration.class , HibernateJpaAutoConfiguration.class})
-@EnableIgniteRepositories
 public class IgniteUseApplications {
 
 	public static void main(String[] args) {

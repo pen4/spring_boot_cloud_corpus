@@ -1,5 +1,6 @@
-package com.springboot.tools;
+package com.springboot.tools.repo;
 
+import com.springboot.tools.entity.Student;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
