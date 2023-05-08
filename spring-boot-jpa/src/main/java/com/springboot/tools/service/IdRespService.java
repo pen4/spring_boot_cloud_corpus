@@ -1,14 +1,12 @@
 package com.springboot.tools.service;
 
-import cn.hutool.core.thread.ThreadUtil;
+import cn.hutool.core.date.StopWatch;
+
 import com.google.common.collect.Lists;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Query;
 import java.util.List;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -20,6 +18,7 @@ import java.util.concurrent.atomic.AtomicLong;
  * @Description:此类用于xxx
  */
 @Service
+@Slf4j
 public class IdRespService {
 
 
@@ -40,23 +39,25 @@ public class IdRespService {
     CopyCommandService copyCommandService;
 
     public void copyCommand() throws InterruptedException, ExecutionException {
+        StopWatch stopWatch = new StopWatch();
+
+        stopWatch.start("copyCommand");
         copyCommandService.setCountDownLatch(countDownLatch);
         List<CopyCommandService> all = Lists.newArrayList();
         for (int i = 1; i <= 420; i++) {
             String path = "D:\\logs4\\" + i + ".txt";
             copyCommandService.setPath(path);
             all.add(copyCommandService);
-            Future<Integer> res= threadPoolExecutor.submit(copyCommandService);
-             count.getAndAdd((Integer) res.get());
+            Future<Integer> res = threadPoolExecutor.submit(copyCommandService);
+            count.getAndAdd((Integer) res.get());
         }
        /* List<Future<Integer>> res = threadPoolExecutor.invokeAll(all);
         for (Future<Integer> future : res) {
             count.getAndAdd(future.get());
         }*/
         countDownLatch.await();
-
-        System.out.println(count + ">>00000000000000000000");
-
+        stopWatch.stop();
+        log.info("总执行条数,{},使用时间,{}", count, stopWatch.getTotalTimeSeconds());
     }
 
 }
