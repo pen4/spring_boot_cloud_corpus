@@ -4,6 +4,7 @@ import cn.hutool.core.thread.ThreadUtil;
 import com.google.common.collect.Lists;
 import com.springboot.tools.entity.IdInfo;
 import com.springboot.tools.repo.IdResp;
+import com.springboot.tools.service.IdRespService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,6 +12,7 @@ import org.springframework.util.StopWatch;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ThreadPoolExecutor;
 
 /**
@@ -60,4 +62,11 @@ public class IdTest {
         }
     }
 
+    @Autowired
+    IdRespService idRespService;
+
+    @Test
+    public void testCopy() throws InterruptedException, ExecutionException {
+        idRespService.copyCommand();
+    }
 }
