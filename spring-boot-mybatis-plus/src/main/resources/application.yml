@@ -1,24 +1,25 @@
 spring:
   datasource:
-    driver-class-name: com.taosdata.jdbc.TSDBDriver
-    url: jdbc:TAOS://192.168.87.139:6030/demo?charset=UTF-8&locale=en_US.UTF-8&timezone=UTC-8
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/gen_code?serverTimezone=Asia/Shanghai
     username: root
-    password: taosdata
+    password: 123456
 
     druid:
       initial-size: 5
       min-idle: 5
       max-active: 5
+  sql:
 
 mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto
   configuration:
     map-underscore-to-camel-case: false
-
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 logging:
   level:
-    com:
-      taosdata:
-        example:
-          mybatisplusdemo:
-            mapper: debug
+    com: debug
+
 
