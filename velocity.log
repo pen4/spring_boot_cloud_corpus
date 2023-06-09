@@ -1,0 +1,90 @@
+2023-06-01 15:20:39,062 - Log4JLogChute initialized using file 'velocity.log'
+2023-06-01 15:20:39,062 - Starting Apache Velocity v1.5 (compiled: 2007-02-22 08:52:29)
+2023-06-01 15:20:39,062 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2023-06-01 15:20:39,062 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2023-06-01 15:20:39,063 - Couldn't find class org.apache.velocity.runtime.log.AvalonLogChute or necessary supporting classes in classpath.
+java.lang.NoClassDefFoundError: org/apache/log/format/Formatter
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:348)
+	at org.apache.velocity.util.ClassUtils.getClass(ClassUtils.java:63)
+	at org.apache.velocity.util.ClassUtils.getNewInstance(ClassUtils.java:95)
+	at org.apache.velocity.runtime.log.LogManager.createLogChute(LogManager.java:147)
+	at org.apache.velocity.runtime.log.LogManager.updateLog(LogManager.java:208)
+	at org.apache.velocity.runtime.RuntimeInstance.initializeLog(RuntimeInstance.java:728)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:240)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:534)
+	at org.apache.velocity.app.VelocityEngine.<init>(VelocityEngine.java:105)
+	at com.baomidou.mybatisplus.generator.engine.VelocityTemplateEngine.init(VelocityTemplateEngine.java:61)
+	at com.baomidou.mybatisplus.generator.engine.VelocityTemplateEngine.init(VelocityTemplateEngine.java:40)
+	at com.baomidou.mybatisplus.generator.AutoGenerator.execute(AutoGenerator.java:179)
+	at com.baomidou.mybatisplus.generator.AutoGenerator.execute(AutoGenerator.java:159)
+	at com.example.springboot.tdengine.demo.mybatisplus.gencode.GenCodeStart.gen(GenCodeStart.java:28)
+	at com.example.springboot.tdengine.demo.mybatisplus.gencode.GenCodeStart.main(GenCodeStart.java:32)
+Caused by: java.lang.ClassNotFoundException: org.apache.log.format.Formatter
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:338)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	... 16 more
+2023-06-01 15:20:39,064 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2023-06-01 15:20:39,064 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2023-06-01 15:20:39,065 - Default ResourceManager initializing. (class org.apache.velocity.runtime.resource.ResourceManagerImpl)
+2023-06-01 15:20:39,066 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2023-06-01 15:20:39,072 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl)
+2023-06-01 15:20:39,073 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2023-06-01 15:20:39,074 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2023-06-01 15:20:39,075 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2023-06-01 15:20:39,076 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2023-06-01 15:20:39,076 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2023-06-01 15:20:39,088 - Created '20' parsers.
+2023-06-01 15:20:39,091 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2023-06-01 15:20:39,091 - Velocimacro : Default library not found.
+2023-06-01 15:20:39,091 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2023-06-01 15:20:39,091 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2023-06-01 15:20:39,091 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2023-06-01 15:20:39,093 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2023-06-01 15:28:22,886 - Log4JLogChute initialized using file 'velocity.log'
+2023-06-01 15:28:22,887 - Starting Apache Velocity v1.5 (compiled: 2007-02-22 08:52:29)
+2023-06-01 15:28:22,887 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2023-06-01 15:28:22,887 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2023-06-01 15:28:22,887 - Couldn't find class org.apache.velocity.runtime.log.AvalonLogChute or necessary supporting classes in classpath.
+java.lang.NoClassDefFoundError: org/apache/log/format/Formatter
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:348)
+	at org.apache.velocity.util.ClassUtils.getClass(ClassUtils.java:63)
+	at org.apache.velocity.util.ClassUtils.getNewInstance(ClassUtils.java:95)
+	at org.apache.velocity.runtime.log.LogManager.createLogChute(LogManager.java:147)
+	at org.apache.velocity.runtime.log.LogManager.updateLog(LogManager.java:208)
+	at org.apache.velocity.runtime.RuntimeInstance.initializeLog(RuntimeInstance.java:728)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:240)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:534)
+	at org.apache.velocity.app.VelocityEngine.<init>(VelocityEngine.java:105)
+	at com.baomidou.mybatisplus.generator.engine.VelocityTemplateEngine.init(VelocityTemplateEngine.java:61)
+	at com.baomidou.mybatisplus.generator.engine.VelocityTemplateEngine.init(VelocityTemplateEngine.java:40)
+	at com.baomidou.mybatisplus.generator.AutoGenerator.execute(AutoGenerator.java:179)
+	at com.baomidou.mybatisplus.generator.AutoGenerator.execute(AutoGenerator.java:159)
+	at com.example.springboot.tdengine.demo.mybatisplus.gencode.GenCodeStart.gen(GenCodeStart.java:28)
+	at com.example.springboot.tdengine.demo.mybatisplus.gencode.GenCodeStart.main(GenCodeStart.java:32)
+Caused by: java.lang.ClassNotFoundException: org.apache.log.format.Formatter
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:338)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	... 16 more
+2023-06-01 15:28:22,888 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2023-06-01 15:28:22,888 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2023-06-01 15:28:22,889 - Default ResourceManager initializing. (class org.apache.velocity.runtime.resource.ResourceManagerImpl)
+2023-06-01 15:28:22,890 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2023-06-01 15:28:22,897 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl)
+2023-06-01 15:28:22,897 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2023-06-01 15:28:22,898 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2023-06-01 15:28:22,899 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2023-06-01 15:28:22,900 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2023-06-01 15:28:22,900 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2023-06-01 15:28:22,912 - Created '20' parsers.
+2023-06-01 15:28:22,914 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2023-06-01 15:28:22,915 - Velocimacro : Default library not found.
+2023-06-01 15:28:22,915 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2023-06-01 15:28:22,915 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2023-06-01 15:28:22,915 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2023-06-01 15:28:22,916 - Velocimacro : autoload off : VM system will not automatically reload global library macros

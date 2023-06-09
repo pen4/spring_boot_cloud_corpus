@@ -21,6 +21,7 @@
         <module>spring-boot-mongodb</module>
         <module>spring-boot-mybatis</module>
         <module>spring-boot-mybatis-plus</module>
+        <module>spring-boot-mybatis-plus-gen</module>
         <module>spring-boot-quartzs</module>
         <module>nacos-spring-boot-config-example</module>
         <module>nacos-spring-boot-discovery-example</module>
@@ -30,6 +31,8 @@
         <module>spring-cloud-sentinel</module>
         <module>mqtt-case</module>
         <module>spring-boot-state-machine</module>
+        <module>spring-boot-token</module>
+        <module>spring-boot-conn-tool</module>
     </modules>
 
     <groupId>com.springboot.tools</groupId>
@@ -189,7 +192,7 @@
             <dependency>
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
-                <version>5.3.10</version>
+                <version>5.8.15</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.ignite</groupId>
@@ -218,6 +221,7 @@
             <dependency>
                 <groupId>org.springframework.data</groupId>
                 <artifactId>spring-data-commons</artifactId>
+                <version>2.7.3</version>
             </dependency>
             <dependency>
                 <groupId>org.locationtech.jts.io</groupId>
@@ -256,6 +260,16 @@
                 <version>2021.0.4</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>3.5.3.1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mysql</groupId>
+                <artifactId>mysql-connector-j</artifactId>
+                <version>8.0.32</version>
             </dependency>
 
         </dependencies>
