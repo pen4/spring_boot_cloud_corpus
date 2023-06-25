@@ -33,6 +33,7 @@
         <module>spring-boot-state-machine</module>
         <module>spring-boot-token</module>
         <module>spring-boot-conn-tool</module>
+        <module>grpc-swagger</module>
     </modules>
 
     <groupId>com.springboot.tools</groupId>

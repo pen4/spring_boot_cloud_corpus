@@ -46,6 +46,11 @@
             <version>2.14.0.RELEASE</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.dtflys.forest</groupId>
+            <artifactId>forest-spring-boot-starter</artifactId>
+            <version>1.5.32</version>
+        </dependency>
 
     </dependencies>
 
