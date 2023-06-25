@@ -34,6 +34,7 @@
         <module>spring-boot-token</module>
         <module>spring-boot-conn-tool</module>
         <module>grpc-swagger</module>
+        <module>grpc-exe-demo</module>
     </modules>
 
     <groupId>com.springboot.tools</groupId>
