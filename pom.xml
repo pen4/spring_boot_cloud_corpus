@@ -46,7 +46,7 @@
     <properties>
         <gson.version>2.6.1</gson.version>
         <qiniu-java-sdk.versiion>7.2.11</qiniu-java-sdk.versiion>
-        <okhttp.versiion>3.3.1</okhttp.versiion>
+        <okhttp.versiion>3.12.0</okhttp.versiion>
         <happy-dns-java.versiion>0.1.4</happy-dns-java.versiion>
         <guava.version>20.0</guava.version>
     </properties>
