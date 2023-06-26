@@ -1,0 +1,87 @@
+timestamp {
+  seconds: 1687682906
+  nanos: 773000000
+}
+call_id: 1
+sequence_id_within_call: 1
+type: EVENT_TYPE_CLIENT_HEADER
+logger: LOGGER_CLIENT
+client_header {
+  metadata {
+  }
+  method_name: "/com.springboot.rpc.binlog.HelloService/SayHello"
+  authority: "127.0.0.1:9090"
+}
+timestamp {
+  seconds: 1687682906
+  nanos: 991000000
+}
+call_id: 1
+sequence_id_within_call: 2
+type: EVENT_TYPE_CLIENT_MESSAGE
+logger: LOGGER_CLIENT
+message {
+  length: 8
+  data: "\n\006Binlog"
+}
+timestamp {
+  seconds: 1687682906
+  nanos: 991000000
+}
+call_id: 1
+sequence_id_within_call: 3
+type: EVENT_TYPE_CLIENT_HALF_CLOSE
+logger: LOGGER_CLIENT
+timestamp {
+  seconds: 1687682907
+  nanos: 557000000
+}
+call_id: 1
+sequence_id_within_call: 4
+type: EVENT_TYPE_SERVER_HEADER
+logger: LOGGER_CLIENT
+server_header {
+  metadata {
+    entry {
+      key: "content-type"
+      value: "application/grpc"
+    }
+    entry {
+      key: "grpc-encoding"
+      value: "identity"
+    }
+    entry {
+      key: "grpc-accept-encoding"
+      value: "gzip"
+    }
+  }
+}
+peer {
+  type: TYPE_IPV4
+  address: "127.0.0.1"
+  ip_port: 9090
+}
+timestamp {
+  seconds: 1687682907
+  nanos: 560000000
+}
+call_id: 1
+sequence_id_within_call: 5
+type: EVENT_TYPE_SERVER_MESSAGE
+logger: LOGGER_CLIENT
+message {
+  length: 14
+  data: "\n\fHello Binlog"
+}
+timestamp {
+  seconds: 1687682907
+  nanos: 562000000
+}
+call_id: 1
+sequence_id_within_call: 6
+type: EVENT_TYPE_SERVER_TRAILER
+logger: LOGGER_CLIENT
+trailer {
+  metadata {
+  }
+}
