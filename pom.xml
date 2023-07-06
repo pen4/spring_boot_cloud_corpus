@@ -35,6 +35,7 @@
         <module>spring-boot-conn-tool</module>
         <module>grpc-swagger</module>
         <module>grpc-exe-demo</module>
+        <module>spring-util</module>
     </modules>
 
     <groupId>com.springboot.tools</groupId>
