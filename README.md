@@ -1,6 +1,37 @@
-# spring_boot_cloud_corpus
+<p align="center">
+  <a href="https://gitee.com/likeyou/spring_boot_cloud_corpus">
+   <img alt="spring_boot_cloud_corpus logo" src="./logo.png">
+  </a>
+</p>
+<p align="center">
+   write demo independently, quickly and efficiently！
+</p>
 
-> spring boot和其他中间件的集成以及spring-cloud和其他组件的集成
+<p align="center">  
+  <a href="https://gitee.com/likeyou/spring_boot_cloud_corpus">
+    <img alt="spring_boot_cloud_corpus version" width="150" height="30" src="https://img.shields.io/badge/spring_boot_cloud_corpus_-v1.0.0-blue">
+  </a>
+  <a href="https://github.com/spring-projects/spring-boot">
+    <img alt="spring boot version" src="https://img.shields.io/badge/spring%20boot-2.7.12-brightgreen">
+  </a>
+  <a href="https://cn.vuejs.org/">
+    <img alt="spring boot version" src="https://img.shields.io/badge/vue-3.2-darkgreen">
+  </a>
+  <a href="https://gitee.com/likeyou/spring_boot_cloud_corpus/blob/master/LICENSE">
+    <img alt="code style" src="https://img.shields.io/badge/license-MIT-green">
+  </a>
+</p>
+
+
+# spring_boot_cloud_corpus
+## 项目简介
+spring boot和其他中间件的集成以及spring-cloud和其他组件的集成
+
+## 分支介绍
+- master 
+- dev
+
+
 #### 介绍
 spring_boot使用常见中间件
 - redis
@@ -46,6 +77,9 @@ spring_boot使用常见中间件
 2. 新建 Feat_xxx 分支
 3. 提交代码
 4. 新建 Pull Request
+## 项目趋势
+
+[![Stargazers over time](https://starchart.cc/xkcoding/spring_boot_cloud_corpus.svg)](https://starchart.cc/xkcoding/spring_boot_cloud_corpus)
 
 
 #### 码云特技
