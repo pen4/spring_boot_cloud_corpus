@@ -36,6 +36,7 @@
         <module>grpc-swagger</module>
         <module>grpc-exe-demo</module>
         <module>spring-util</module>
+        <module>reactor</module>
     </modules>
 
     <groupId>com.springboot.tools</groupId>
